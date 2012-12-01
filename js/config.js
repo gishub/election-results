@@ -113,7 +113,7 @@ dojo.declare("js.config", null, {
     PrecinctLayer:
           {
               Key: "precinctLayer",
-              ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/8",
+              ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/8",
               UseColor: true,
               Color: "#FFFC17",
               Alpha: 0.50,
@@ -126,7 +126,7 @@ dojo.declare("js.config", null, {
     // DisplayOnLoad setting this will show the reference overlay layer on load
     ReferenceOverlayLayer:
           {
-              ServiceUrl: "http://yourserver/ArcGIS/rest/services/ReferenceOverlay/MapServer",
+              ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ReferenceOverlay/MapServer",
               DisplayOnLoad: true
           },
 
@@ -155,7 +155,7 @@ dojo.declare("js.config", null, {
     // GEOMETRY SERVICE SETTINGS
     // ------------------------------------------------------------------------------------------------------------------------
     // Set geometry service URL
-    GeometryService: "http://yourserver/arcgis/rest/services/Utilities/Geometry/GeometryServer",
+    GeometryService: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Geometry/GeometryServer",
 
 
     // ------------------------------------------------------------------------------------------------------------------------
@@ -183,7 +183,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "President of US",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/0",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/0",
                         ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4", "NUMVOTES5", "NUMVOTES6", "NUMVOTES7", "NUMVOTES8"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4", "PARTY5", "PARTY6", "PARTY7", "PARTY8"],
@@ -195,7 +195,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 24th District",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/1",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/1",
                         ChartData: ["NUMVOTES1"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1"],
@@ -207,7 +207,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 42nd District",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/2",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/2",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -219,7 +219,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 48th District",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/3",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/3",
                         ChartData: ["NUMVOTES1"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1"],
@@ -231,7 +231,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "US House of Representatives 13th District",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/4",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/4",
                         ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4"],
@@ -243,7 +243,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Dupage County Recorder of Deeds",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/5",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/5",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -255,7 +255,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Will County Recorder of Deeds",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/6",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/6",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -267,7 +267,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Voter Turnout",
-                        ServiceUrl: "http://yourserver/ArcGIS/rest/services/ElectionResults/MapServer/7",
+                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/7",
                         ChartData: ["PERCVOTE"],
                         DisplayOnLoad: false,
                         ChartType: "piechart"
