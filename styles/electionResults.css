@@ -1,5 +1,5 @@
 ﻿/*
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +37,7 @@
 /* 9.  Set the styles for info window           - { Style(s) to look for: divInfoWindowContainer,divTriangle,dj_ie .divInfoWindowContainer,
                                                                           divInfoWindowContainer .container,imgInfoWindow,divInfoWindowContainer .content,
                                                                           divInfoWindowContainer .title,imgArrow}*/
-/* 10. Set the styles for esri slider           - { Style(s) to look for: esriSimpleSlider}*/
+/* 10. Set the styles for Esri slider           - { Style(s) to look for: esriSimpleSlider}*/
 /* 11. Set the styles for loading indicator     - { Style(s) to look for: divLoadingIndicator}*/
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -55,11 +55,6 @@ html, body
     color: White;
     font-size: 11px;
     visibility: visible !important;
-}
-
-[type=text]
-{
-    font-family: Verdana;
 }
 
 .roundedCorner
@@ -291,11 +286,10 @@ html, body
 {
     position: absolute;
     right: 0px;
-    top: 0px;
+    top: 4px;
     background-color: transparent;
     cursor: default;
-    display: block;
-    padding: 2px 2px 2px 2px;
+    display: block; /* padding: 2px 2px 2px 2px;*/
 }
 
 .scrollbar_handle
@@ -309,6 +303,19 @@ html, body
     opacity: 0.9;
     -moz-opacity: 0.9;
     cursor: default;
+}
+
+.scrollbar_container
+{
+    overflow: hidden;
+    height: 128px;
+    position: relative;
+}
+
+.scrollbar_content
+{
+    overflow: hidden;
+    height: 124px;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -388,7 +395,6 @@ html, body
     display: none;
 }
 
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Styles for search container*/
@@ -412,12 +418,12 @@ html, body
     -moz-border-radius-topright: 10px;
     -moz-border-radius-bottomleft: 0px;
     -moz-border-radius-bottomright: 0px;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 7px;
+    -webkit-border-top-right-radius: 7px;
     -webkit-border-bottom-left-radius: 0px;
     -webkit-border-bottom-right-radius: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom: gray 1px solid;
@@ -431,30 +437,27 @@ html, body
     -webkit-border-radius: 3px;
     border-radius: 3px;
     position: relative;
-    margin-top: 10px;
 }
 
 .txtAddress
 {
     vertical-align: middle;
     background-color: #333333;
-    color: #fff;
-    border: none; /*  height: 25px;*/
+    color: gray;
+    border: none !important;
     outline: none;
     padding: 0px !important;
+    line-height: 30px;
 }
 
 .imgLocate
 {
-    position: absolute;
     cursor: pointer;
-    right: 0px;
-    margin: 2px;
+    position: absolute;
 }
 
 .divAddressList
 {
-    /*margin-top: 5px;*/
     color: #fff;
     z-index: 101;
     background-color: transparent;
@@ -462,6 +465,14 @@ html, body
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+    margin-top: 5px;
+}
+
+.imgSearchLoader
+{
+    vertical-align: middle;
+    display: none;
+    cursor: default;
 }
 
 .tdSearchByAddress
@@ -469,22 +480,15 @@ html, body
     margin-left: 10px;
     margin-right: 10px;
     height: 25px;
+    min-width: 90px;
     -moz-border-top-left-radius: 5px;
     -webkit-border-top-left-radius: 5px;
-    border-top-left-radius: 5px;
     -moz-border-bottom-left-radius: 5px;
     -webkit-bottom-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     text-align: center;
     cursor: default;
-    background: #4c4c4c; /* Old browsers */
-    background: -moz-linear-gradient(top, #4c4c4c 0%, #2b2b2b 0%, #8c8c8c 0%, #111111 59%, #2c2c2c 100%, #131313 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(0%,#2b2b2b), color-stop(0%,#8c8c8c), color-stop(59%,#111111), color-stop(100%,#2c2c2c), color-stop(100%,#131313)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* IE10+ */
-    background: linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+    background-color: #AAAAAA;
 }
 
 .tdSearchByPrecinct
@@ -492,22 +496,16 @@ html, body
     margin-left: 10px;
     margin-right: 10px;
     height: 25px;
+    text-align: center;
+    min-width: 90px;
+    cursor: default;
+    background-color: #AAAAAA;
     -moz-border-top-right-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     border-top-right-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     -moz-border-bottom-right-radius: 5px;
     -webkit-bottom-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    text-align: center;
-    cursor: default;
-    background: #4c4c4c; /* Old browsers */
-    background: -moz-linear-gradient(top, #4c4c4c 0%, #2b2b2b 0%, #8c8c8c 0%, #111111 59%, #2c2c2c 100%, #131313 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(0%,#2b2b2b), color-stop(0%,#8c8c8c), color-stop(59%,#111111), color-stop(100%,#2c2c2c), color-stop(100%,#131313)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* IE10+ */
-    background: linear-gradient(top, #4c4c4c 0%,#2b2b2b 0%,#8c8c8c 0%,#111111 59%,#2c2c2c 100%,#131313 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */ /* IE6-9 */
 }
 
 .tdSearchByUnSelectedPrecinct
@@ -516,21 +514,15 @@ html, body
     margin-right: 10px;
     height: 25px;
     text-align: center;
-    background: rgb(76,76,76); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 24%, rgba(102,102,102,1) 45%, rgba(102,102,102,1) 95%, rgba(102,102,102,1) 100%, rgba(71,71,71,1) 100%, rgba(28,28,28,1) 100%, rgba(0,0,0,1) 100%, rgba(44,44,44,1) 100%, rgba(19,19,19,1) 100%, rgba(43,43,43,1) 100%, rgba(17,17,17,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(24%,rgba(89,89,89,1)), color-stop(45%,rgba(102,102,102,1)), color-stop(95%,rgba(102,102,102,1)), color-stop(100%,rgba(102,102,102,1)), color-stop(100%,rgba(71,71,71,1)), color-stop(100%,rgba(28,28,28,1)), color-stop(100%,rgba(0,0,0,1)), color-stop(100%,rgba(44,44,44,1)), color-stop(100%,rgba(19,19,19,1)), color-stop(100%,rgba(43,43,43,1)), color-stop(100%,rgba(17,17,17,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* IE10+ */
-    background: linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1c1c1', endColorstr='#4f4f4f',GradientType=0 ); /* IE6-9 */
+    min-width: 90px;
+    background: #202020; /* Old browsers */
+    cursor: pointer;
     -moz-border-top-right-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     border-top-right-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     -moz-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    cursor: pointer;
+    -webkit-bottom-top-right-radius: 5px;
 }
 
 .tdSearchByUnSelectedAddress
@@ -538,25 +530,21 @@ html, body
     margin-left: 10px;
     margin-right: 10px;
     height: 25px;
+    min-width: 90px;
     text-align: center;
-    background: rgb(76,76,76); /* Old browsers */
-    background: rgb(76,76,76); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 24%, rgba(102,102,102,1) 45%, rgba(102,102,102,1) 95%, rgba(102,102,102,1) 100%, rgba(71,71,71,1) 100%, rgba(28,28,28,1) 100%, rgba(0,0,0,1) 100%, rgba(44,44,44,1) 100%, rgba(19,19,19,1) 100%, rgba(43,43,43,1) 100%, rgba(17,17,17,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(24%,rgba(89,89,89,1)), color-stop(45%,rgba(102,102,102,1)), color-stop(95%,rgba(102,102,102,1)), color-stop(100%,rgba(102,102,102,1)), color-stop(100%,rgba(71,71,71,1)), color-stop(100%,rgba(28,28,28,1)), color-stop(100%,rgba(0,0,0,1)), color-stop(100%,rgba(44,44,44,1)), color-stop(100%,rgba(19,19,19,1)), color-stop(100%,rgba(43,43,43,1)), color-stop(100%,rgba(17,17,17,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* IE10+ */
-    background: linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 24%,rgba(102,102,102,1) 45%,rgba(102,102,102,1) 95%,rgba(102,102,102,1) 100%,rgba(71,71,71,1) 100%,rgba(28,28,28,1) 100%,rgba(0,0,0,1) 100%,rgba(44,44,44,1) 100%,rgba(19,19,19,1) 100%,rgba(43,43,43,1) 100%,rgba(17,17,17,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1c1c1', endColorstr='#4f4f4f',GradientType=0 ); /* IE6-9 */
+    background: #202020; /* Old browsers */
     -moz-border-top-left-radius: 5px;
     -webkit-border-top-left-radius: 5px;
-    border-top-left-radius: 5px;
     -moz-border-bottom-left-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     cursor: pointer;
 }
 
+.tdSearchByAddress, .tdSearchByPrecinct, .tdSearchByUnSelectedPrecinct, .tdSearchByUnSelectedAddress
+{
+    width: 90px;
+}
 .bottomborder
 {
     border-bottom: 1px solid white;
@@ -573,7 +561,7 @@ html, body
     bottom: 0px;
     left: 40px;
     width: 260px;
-    z-index: 1000; /* -moz-border-top-right-radius: 8px;height: 40px;     -webkit-border-top-right-radius: 8px;     border-top-right-radius: 8px;     -moz-border-top-left-radius: 8px;     -webkit-border-top-left-radius: 8px;     border-top-left-radius: 8px;     vertical-align: middle;     background-color: rgba(17, 17, 17, .95);     filter: progid:DXImageTransform.Microsoft.Gradient( gradientType=0, startColorStr=#f2171717, EndColorStr=#f2171717);*/
+    z-index: 1000;
     background-image: url(../images/header.png) !important;
     background-repeat: no-repeat;
     visibility: hidden;
@@ -783,7 +771,7 @@ html, body
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Styles for esri slider */
+/*Styles for Esri slider */
 
 .esriSimpleSlider
 {

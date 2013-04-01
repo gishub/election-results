@@ -1,5 +1,5 @@
 /** @license
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,19 +36,16 @@ dojo.declare("js.config", null, {
     //                                                - [ Tag(s) to look for: PrecinctLayer, ReferenceOverlayLayer]
     // 9b. Customize data formatting                  - [ Tag(s) to look for: ShowNullValueAs]
     //
-    // 10. Specify color for selected features        - [ Tag(s) to look for: SelectionColor ]
+    // 10. Customize address search settings          - [ Tag(s) to look for: LocatorSettings]
     //
-    // 11. Customize address search settings          - [ Tag(s) to look for: LocatorURL, LocatorFields, LocatorDefaultAddress]
+    // 11. Set URL for geometry service               - [ Tag(s) to look for: GeometryService ]
     //
-    // 12. Set URL for geometry service               - [ Tag(s) to look for: GeometryService ]
-    //
-    //
-    // 13. Configure data to be displayed on the bottom panel
+    // 12. Configure data to be displayed on the bottom panel
     //                                                - [ Tag(s) to look for: InfoBoxWidth, ElectionResultData, ColorCodeOfParties, VotedColor, DidNotVoteColor]
     //
-    // 14. Configure data to be displayed for election updates
+    // 13. Configure data to be displayed for election updates
     //                                                - [Tag(s) to look for: Updates]
-    // 15. Specify URLs for map sharing               - [ Tag(s) to look for: FacebookShareURL, TwitterShareURL, ShareByMailLink ]
+    // 14. Specify URLs for map sharing               - [ Tag(s) to look for: FacebookShareURL, TwitterShareURL, ShareByMailLink ]
     // 15a.In case of changing the TinyURL service
     //     Specify URL for the new service            - [ Tag(s) to look for: MapSharingOptions (set TinyURLServiceURL, TinyURLResponseAttribute) ]
     //
@@ -64,7 +61,7 @@ dojo.declare("js.config", null, {
     ApplicationIcon: "images/logo.png",
 
     // Set splash window content - Message that appears when the application starts
-    SplashScreenMessage: "<b>Election Results</b> <br/> <hr/> <br/> The <b>Election Results</b> application provides election results information to the general public and other interested parties. It offers a map-based view of results tabulated on election night and allows users to review these results for a specific precinct or political contest. To review election results, simply enter an address or voting precinct in the search box.  The precinct will then be highlighted on the map and results for each political contest displayed in a tab along the bottom of the map. <br/><br/>",
+    SplashScreenMessage: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
 
     // Set URL of help page/portal
     HelpURL: "help.htm",
@@ -73,7 +70,7 @@ dojo.declare("js.config", null, {
     // BASEMAP SETTINGS
     // ------------------------------------------------------------------------------------------------------------------------
     // Set baseMap layers
-    // Please note: All basemaps need to use the same spatial reference. By default, on application start the first basemap will be loaded
+    // Please note: All base maps need to use the same spatial reference. By default, on application start the first basemap will be loaded
     BaseMapLayers:
 		       [
                    {
@@ -83,7 +80,7 @@ dojo.declare("js.config", null, {
 		       ],
 
 
-    // Initial map extent. Use comma (,) to separate values and dont delete the last comma
+    // Initial map extent. Use comma (,) to separate values and don't delete the last comma
     DefaultExtent: "-9817810,5124390,-9808630,5128700",
 
     // ------------------------------------------------------------------------------------------------------------------------
@@ -93,9 +90,9 @@ dojo.declare("js.config", null, {
     UseWebmap: false,
 
     // if using WebMap, specify WebMapID within quotes, otherwise leave this empty and configure operational layers
-    WebMapId: "652967a782c24986925dea8d68038b39",
+    WebMapId: "3f591f1e90e440a7be6d49c38937c336",
 
-    // if using WebMap, rest of the operational data settings will be pickedup from WebMap excluding the highlight color for precinct and the display property for the reference overlay layer
+    // if using WebMap, rest of the operational data settings will be picked up from WebMap excluding the highlight color for precinct and the display property for the reference overlay layer
     // To highlight precinct with custom color set "UseColor" property to "true"
     // To make the reference overlay layer visible set "DisplayOnLoad" property to "true"
 
@@ -103,17 +100,17 @@ dojo.declare("js.config", null, {
     // Configure operational layers
 
     // Key is used as an layerId while adding this layer to the map and has to be unique
-    // ServiceUrl is the REST end point for the PrecinctLayer
-    // UseColor used to override the default symbology defined in the mapservice
+    // ServiceURL is the REST end point for the PrecinctLayer
+    // UseColor used to override the default symbology defined in the map service
     // Color used to define the renderer color of the symbol
     // Alpha used to define the transparency of the renderer
-    // Query is used to query the mapserver for fetching precinct's
+    // Query is used to query the map server for fetching precinct's
     // PrecinctName is the attribute name from the Precinct Layer which represents Precinct Name
     // County is the attribute name from the Precinct Layer which represents County name
     PrecinctLayer:
           {
               Key: "precinctLayer",
-              ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/8",
+              ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/8",
               UseColor: true,
               Color: "#FFFC17",
               Alpha: 0.50,
@@ -122,11 +119,12 @@ dojo.declare("js.config", null, {
               County: "COUNTY"
           },
 
-    // ServiceUrl is the REST end point for the reference overlay layer
+    //Set ReferenceOverlay Layer
+    // ServiceURL is the REST end point for the reference overlay layer
     // DisplayOnLoad setting this will show the reference overlay layer on load
     ReferenceOverlayLayer:
           {
-              ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ReferenceOverlay/MapServer",
+              ServiceURL: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ReferenceOverlay/MapServer",
               DisplayOnLoad: true
           },
 
@@ -138,18 +136,28 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     // ADDRESS SEARCH SETTINGS
     // ------------------------------------------------------------------------------------------------------------------------
-    // Set Locator service URL
-    LocatorURL: "http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Address_NA_10/GeocodeServer",
 
-    // Set Locator fields (fields to be used for searching)
-    LocatorFields: "SingleLine",
-
-    // Set default address to search
-    LocatorDefaultAddress: "628 South Loomis Street, Naperville, IL, 60540",
-
-    //Set default precinct to search
-    LocatorDefaultPrecinct: "Lisle 12",
-
+    // Set locator settings such as locator symbol, size, zoom level, display fields, match score
+    LocatorSettings: {
+        Locators: [
+                {
+                    DisplayText: "Address",
+                    LocatorDefaultAddress: "628 South Loomis Street Naperville IL 60540",
+                    LocatorParamaters: ["SingleLine"],
+                    LocatorURL: "http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Address_NA_10/GeocodeServer",
+                    CandidateFields: "Loc_name, Score, Match_addr",
+                    DisplayField: "${Match_addr}",
+                    ZoomLevel: 7,
+                    AddressMatchScore: 80,
+                    LocatorFieldName: 'Loc_name',
+                    LocatorFieldValues: ["US_Streets", "US_StreetName"]
+                },
+                {
+                    DisplayText: "Precinct",
+                    LocatorDefaultPrecinct: "Lisle 12"
+                }
+            ]
+    },
 
     // ------------------------------------------------------------------------------------------------------------------------
     // GEOMETRY SERVICE SETTINGS
@@ -157,33 +165,31 @@ dojo.declare("js.config", null, {
     // Set geometry service URL
     GeometryService: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Geometry/GeometryServer",
 
-
     // ------------------------------------------------------------------------------------------------------------------------
-
 
     // SETTINGS FOR INFO-PODS ON THE BOTTOM PANEL
     // ------------------------------------------------------------------------------------------------------------------------
-    // Set width of the boxes in the bottom panel
+    // Set width of the pods in the bottom panel
     InfoBoxWidth: 424,
 
-    // Election Results contest data shown in the bottom panel. Every section is a box in the bottom panel.
-    // HeaderColor will set the color of the header of the infobox in the bottom panel
-    // Title will set the contest name of the infobox in the bottom panel
-    // ServiceUrl is the mapservice URL for the contest
+    // Election Results contest data shown in the bottom panel. Every section is a pod in the bottom panel
+    // HeaderColor will set the color of the header of the info pod in the bottom panel
+    // Title will set the contest name of the info pod in the bottom panel
+    // ServiceURL is the map service URL for the contest
     // ChartData is the attribute information for the contest used in rendering charts
-    // ChartType "barchart" (or) "piechart"
+    // ChartType "bar-chart" (or) "pie-chart"
     // PartyDetails is the attribute information used to render party color in the charts. This has to be in the same sequence with the ChartData attribute sequence. This data is not required for piechart
     // CandidateNames is the attribute information used to display Candidate name in the charts. This has to be in the same sequence with the ChartData attribute sequence. This data is not required for piechart
-    // WinningParty is the attribute name which gives the winning party name. This is not required for piechart
+    // WinningParty is the attribute name which gives the winning party name. This is not required for pie-chart
     // DisplayOnLoad setting this will show the contest layer on load. If this is set true for multiple contests, only the first occurrence is considered
-    // TotalBallots is the attribute name which gives the total votes casted. This is not required for piechart
+    // TotalBallots is the attribute name which gives the total votes casted. This is not required for pie-chart
     ElectionResultData:
           {
               POULayer:
                     {
                         HeaderColor: "#393939",
                         Title: "President of US",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/0",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/0",
                         ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4", "NUMVOTES5", "NUMVOTES6", "NUMVOTES7", "NUMVOTES8"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4", "PARTY5", "PARTY6", "PARTY7", "PARTY8"],
@@ -195,7 +201,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 24th District",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/1",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/1",
                         ChartData: ["NUMVOTES1"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1"],
@@ -207,7 +213,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 42nd District",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/2",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/2",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -219,7 +225,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 48th District",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/3",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/3",
                         ChartData: ["NUMVOTES1"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1"],
@@ -231,7 +237,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "US House of Representatives 13th District",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/4",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/4",
                         ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4"],
@@ -243,7 +249,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Dupage County Recorder of Deeds",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/5",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/5",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -255,7 +261,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Will County Recorder of Deeds",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/6",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/6",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -267,13 +273,15 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Voter Turnout",
-                        ServiceUrl: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ElectionResults/MapServer/7",
+                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/7",
                         ChartData: ["PERCVOTE"],
                         DisplayOnLoad: false,
                         ChartType: "piechart"
                     }
           },
 
+    //Query field for ElectionResultData layers
+    ElectionResultDataQueryString: "NAME",
 
     //Set the color for different parties
     ColorCodeOfParties:
@@ -287,7 +295,7 @@ dojo.declare("js.config", null, {
     //Set the color for those who voted
     VotedColor: "#66736D",
 
-    //Se the color for those who did not vote
+    //Set the color for those who did not vote
     DidNotVoteColor: "#E6F0E8",
 
     // ------------------------------------------------------------------------------------------------------------------------
@@ -312,9 +320,8 @@ dojo.declare("js.config", null, {
           {
               TinyURLServiceURL: "http://api.bit.ly/v3/shorten?login=esri&apiKey=R_65fd9891cd882e2a96b99d4bda1be00e&uri=${0}&format=json",
               TinyURLResponseAttribute: "data.url",
-
               FacebookShareURL: "http://www.facebook.com/sharer.php?u=${0}&t=Election%20Results",
-              TwitterShareURL: "http://twitter.com/home/?status=Election%20Results ${0}",
+              TwitterShareURL: "http://mobile.twitter.com/compose/tweet?status=Election%20Results ${0}",
               ShareByMailLink: "mailto:%20?subject=Election%20Results&body=${0}"
           }
 });

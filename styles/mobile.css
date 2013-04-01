@@ -1,5 +1,5 @@
 ﻿/*
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +28,7 @@
                                                                           mblListItem A.mblListItemAnchor,bottomborder,mblListItemTextBox,mblListItemIcon}*/
 /* 5.  Set the styles for bar chart container   - { Style(s) to look for: divElectionContainer,divRepresentativeDataScrollContainer,divElectionContent,
                                                                           divRepresentativeScrollContent,divChartTitle,divVotes,divWinningParty}*/
-/* 6.  Set the styles for esri slider           - { Style(s) to look for: esriSimpleSlider}*/
+/* 6.  Set the styles for Esri slider           - { Style(s) to look for: esriSimpleSlider}*/
 /* 7.  Set the styles for info window           - { Style(s) to look for: divInfoWindowContainer .content,divInfoWindowContainer .title,spanContentText}*/
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -121,7 +121,7 @@ html, body
 {
     font-size: 15px !important;
     height: 44px !important;
-    width: 85%;
+    width: 100%;
     padding: 0px !important;
 }
 
@@ -129,15 +129,17 @@ html, body
 {
     height: 44px !important;
     width: 44px !important;
+    vertical-align: middle;
+    top: 56px;
+    right:20px;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Styles for contest list container*/
 
 .divElectionContenderDetails
 {
-    z-index: 1001; /* background-color: rgba(71, 71, 71,.75);*/
+    z-index: 1001;
     background-color: #585858;
     width: 100%;
     height: 100%;
@@ -189,11 +191,13 @@ html, body
     top: 2px !important;
     height: 44px !important;
     width: 44px !important;
+    float: right !important;
+    margin-top: 2px !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Styles for barchart container*/
+/*Styles for bar-chart container*/
 
 .divElectionContainer, .divRepresentativeDataScrollContainer, .divElectionContent, .divRepresentativeScrollContent
 {
@@ -212,34 +216,9 @@ html, body
     width: 100%;
 }
 
-/* Landscape */
-
-@media screen and (min-width: 321px) and (max-width: 480px)
-{
-
-    .divVotes
-    {
-        position: absolute;
-        left: 10px;
-    }
-
-}
-/* Landscape */
-
-@media screen and (min-width: 321px) and (max-width: 480px)
-{
-
-    .divWinningParty
-    {
-        position: absolute;
-        right: 10px;
-    }
-
-}
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Styles for esri slider*/
+/*Styles for Esri slider*/
 
 /* Portrait */
 
@@ -256,7 +235,7 @@ html, body
 
 /* Landscape */
 
-@media screen and (min-width: 321px) and (max-width: 480px)
+@media screen and (min-width: 321px) and (max-width: 580px)
 {
 
     .esriSimpleSlider
@@ -269,7 +248,7 @@ html, body
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Styles for infowindow*/
+/*Styles for info-window*/
 
 .divInfoWindowContainer .content
 {

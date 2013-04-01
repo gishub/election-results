@@ -1,5 +1,5 @@
 ﻿/*
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -68,6 +68,7 @@ html, body
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
+    z-index: 999;
 }
 
 .divAddressPlaceHolder
@@ -86,13 +87,16 @@ html, body
 {
     height: 44px !important;
     width: 44px !important;
+    vertical-align: middle;
+    top: 52px;
+    right: 15px;
 }
 
 .txtAddress
 {
-    font-size: 14px;
-    height: 44px;
-    width: 230px;
+    font-size: 14px !important;
+    height: 44px !important;
+    width: 100%;
 }
 
 .bottomborder
@@ -118,7 +122,7 @@ html, body
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Styles for infowindow*/
+/*Styles for info-window*/
 
 .divResultChartContainer
 {
@@ -136,4 +140,8 @@ html, body
     margin-top: -10px;
 }
 
+.esriSimpleSlider
+{
+    z-index: 1000;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

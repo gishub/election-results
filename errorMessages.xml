@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,17 +16,15 @@
  | limitations under the License.
 -->
 <Messages>
-  <blankAddress>Enter address to locate.</blankAddress>
-  <incorrectFormat>Please enter address in correct format.</incorrectFormat>
-  <blankPrecinct>Please enter a precinct.</blankPrecinct>
-  <unableToLocateAddress>Unable to locate specified address.</unableToLocateAddress>
-  <noPrecinct>There is no precinct data available for the selected location.</noPrecinct>
-  <noContest>There is no '${0}' contest data available for the selected precinct.</noContest>
-  <unableToLocatePrecinct>Unable to locate precinct.</unableToLocatePrecinct>
-  <tinyURLEngine>Bitly API is not able to generate tiny URL.</tinyURLEngine>
-  <outsideArea>You are currently outside the supported area.</outsideArea>
-  <timeOut>The browser is unable to supply a position at this time.</timeOut>
-  <positionUnavailable>Position unavailable.</positionUnavailable>
-  <permissionDenied>Permission denied.</permissionDenied>
-  <unknownError>Unknown error.</unknownError>
+    <blankAddress>Enter address to locate.</blankAddress>
+    <blankPrecinct>Please enter a precinct.</blankPrecinct>
+    <noContest>There is no '${0}' contest data available for the selected precinct.</noContest>
+    <unableToLocatePrecinct>Unable to locate precinct.</unableToLocatePrecinct>
+    <noSearchResults>No results found</noSearchResults>
+    <tinyURLEngine>Bitly API is not able to generate tiny URL.</tinyURLEngine>
+    <outsideArea>You are currently outside the supported area.</outsideArea>
+    <timeOut>The browser is unable to supply a position at this time.</timeOut>
+    <positionUnavailable>Position unavailable.</positionUnavailable>
+    <permissionDenied>Permission denied.</permissionDenied>
+    <unknownError>Unknown error.</unknownError>
 </Messages>
