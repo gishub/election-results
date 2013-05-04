@@ -61,7 +61,7 @@ dojo.declare("js.config", null, {
     ApplicationIcon: "images/logo.png",
 
     // Set splash window content - Message that appears when the application starts
-    SplashScreenMessage: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+    SplashScreenMessage: "<b>Election Results</b> <br/> <hr/> <br/> The <b>Election Results</b> application provides election results information to the general public and other interested parties. It offers a map-based view of results tabulated on election night and allows users to review these results for a specific precinct or political contest. To review election results, simply enter an address or voting precinct in the search box.  The precinct will then be highlighted on the map and results for each political contest displayed in a tab along the bottom of the map. <br/><br/>",
 
     // Set URL of help page/portal
     HelpURL: "help.htm",
@@ -86,18 +86,12 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     // OPERATIONAL DATA SETTINGS
     // ------------------------------------------------------------------------------------------------------------------------
-    // Choose if you want to use WebMap or Map Services for operational layers
+    // WebMaps are not supported with the 10.2 version of the Election Results application. Please use Map Services for operational layers. Do not change the "UseWebmap" and "WebMapId" parameters.
     UseWebmap: false,
 
-    // if using WebMap, specify WebMapID within quotes, otherwise leave this empty and configure operational layers
-    WebMapId: "3f591f1e90e440a7be6d49c38937c336",
+    WebMapId: "",
 
-    // if using WebMap, rest of the operational data settings will be picked up from WebMap excluding the highlight color for precinct and the display property for the reference overlay layer
-    // To highlight precinct with custom color set "UseColor" property to "true"
-    // To make the reference overlay layer visible set "DisplayOnLoad" property to "true"
-
-    // if not using WebMap, set the following options
-    // Configure operational layers
+    // Set the following options for the configuration of operational layers
 
     // Key is used as an layerId while adding this layer to the map and has to be unique
     // ServiceURL is the REST end point for the PrecinctLayer
