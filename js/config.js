@@ -81,7 +81,7 @@ dojo.declare("js.config", null, {
 
 
     // Initial map extent. Use comma (,) to separate values and don't delete the last comma
-    DefaultExtent: "-9817810,5124390,-9808630,5128700",
+    DefaultExtent: "-9816010,5123000,-9809970,5129500",
 
     // ------------------------------------------------------------------------------------------------------------------------
     // OPERATIONAL DATA SETTINGS
@@ -136,15 +136,15 @@ dojo.declare("js.config", null, {
         Locators: [
                 {
                     DisplayText: "Address",
-                    LocatorDefaultAddress: "628 South Loomis Street Naperville IL 60540",
+                    LocatorDefaultAddress: "139 W Porter Ave Naperville IL 60540",
                     LocatorParamaters: ["SingleLine"],
-                    LocatorURL: "http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Address_NA_10/GeocodeServer",
+                    LocatorURL: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
                     CandidateFields: "Loc_name, Score, Match_addr",
                     DisplayField: "${Match_addr}",
                     ZoomLevel: 7,
                     AddressMatchScore: 80,
                     LocatorFieldName: 'Loc_name',
-                    LocatorFieldValues: ["US_Streets", "US_StreetName"]
+                    LocatorFieldValues: ["USA.StreetName" , "USA.PointAddress", "USA.StreetAddress"]
                 },
                 {
                     DisplayText: "Precinct",
