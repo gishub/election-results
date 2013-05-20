@@ -104,7 +104,7 @@ dojo.declare("js.config", null, {
     PrecinctLayer:
           {
               Key: "precinctLayer",
-              ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/8",
+              ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/8",
               UseColor: true,
               Color: "#FFFC17",
               Alpha: 0.50,
@@ -118,7 +118,7 @@ dojo.declare("js.config", null, {
     // DisplayOnLoad setting this will show the reference overlay layer on load
     ReferenceOverlayLayer:
           {
-              ServiceURL: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Election/ReferenceOverlay/MapServer",
+              ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ReferenceOverlay/MapServer",
               DisplayOnLoad: true
           },
 
@@ -157,7 +157,7 @@ dojo.declare("js.config", null, {
     // GEOMETRY SERVICE SETTINGS
     // ------------------------------------------------------------------------------------------------------------------------
     // Set geometry service URL
-    GeometryService: "http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer",
+    GeometryService: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/Utilities/Geometry/GeometryServer",
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -183,7 +183,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "President of US",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/0",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/0",
                         ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4", "NUMVOTES5", "NUMVOTES6", "NUMVOTES7", "NUMVOTES8"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4", "PARTY5", "PARTY6", "PARTY7", "PARTY8"],
@@ -195,7 +195,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 24th District",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/1",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/1",
                         ChartData: ["NUMVOTES1"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1"],
@@ -207,7 +207,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 42nd District",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/2",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/2",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -219,7 +219,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Senate 48th District",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/3",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/3",
                         ChartData: ["NUMVOTES1"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1"],
@@ -231,7 +231,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "US House of Representatives 13th District",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/4",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/4",
                         ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4"],
@@ -243,7 +243,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Dupage County Recorder of Deeds",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/5",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/5",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -255,7 +255,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Will County Recorder of Deeds",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/6",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/6",
                         ChartData: ["NUMVOTES1", "NUMVOTES2"],
                         ChartType: "barchart",
                         PartyDetails: ["PARTY1", "PARTY2"],
@@ -267,7 +267,7 @@ dojo.declare("js.config", null, {
                     {
                         HeaderColor: "#393939",
                         Title: "Voter Turnout",
-                        ServiceURL: "http://203.199.47.146/arcgis/rest/services/ElectionResults/ElectionResultsLocalGov/MapServer/7",
+                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/7",
                         ChartData: ["PERCVOTE"],
                         DisplayOnLoad: false,
                         ChartType: "piechart"
