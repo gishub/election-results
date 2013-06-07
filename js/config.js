@@ -1,3 +1,4 @@
+/*global dojo */
 /** @license
  | Version 10.2
  | Copyright 2012 Esri
@@ -71,13 +72,10 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     // Set baseMap layers
     // Please note: All base maps need to use the same spatial reference. By default, on application start the first basemap will be loaded
-    BaseMapLayers:
-		       [
-                   {
-                       Key: "baseMapKey",
-                       MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"
-                   }
-		       ],
+    BaseMapLayers: [{
+        Key: "baseMapKey",
+        MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"
+    }],
 
 
     // Initial map extent. Use comma (,) to separate values and don't delete the last comma
@@ -101,26 +99,24 @@ dojo.declare("js.config", null, {
     // Query is used to query the map server for fetching precinct's
     // PrecinctName is the attribute name from the Precinct Layer which represents Precinct Name
     // County is the attribute name from the Precinct Layer which represents County name
-    PrecinctLayer:
-          {
-              Key: "precinctLayer",
-              ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/8",
-              UseColor: true,
-              Color: "#FFFC17",
-              Alpha: 0.50,
-              Query: "UPPER(NAME) LIKE '%${0}%'",
-              PrecinctName: "NAME",
-              County: "COUNTY"
-          },
+    PrecinctLayer: {
+        Key: "precinctLayer",
+        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/8",
+        UseColor: true,
+        Color: "#FFFC17",
+        Alpha: 0.50,
+        Query: "UPPER(NAME) LIKE '%${0}%'",
+        PrecinctName: "NAME",
+        County: "COUNTY"
+    },
 
     //Set ReferenceOverlay Layer
     // ServiceURL is the REST end point for the reference overlay layer
     // DisplayOnLoad setting this will show the reference overlay layer on load
-    ReferenceOverlayLayer:
-          {
-              ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ReferenceOverlay/MapServer",
-              DisplayOnLoad: true
-          },
+    ReferenceOverlayLayer: {
+        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ReferenceOverlay/MapServer",
+        DisplayOnLoad: true
+    },
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -133,24 +129,21 @@ dojo.declare("js.config", null, {
 
     // Set locator settings such as locator symbol, size, zoom level, display fields, match score
     LocatorSettings: {
-        Locators: [
-                {
-                    DisplayText: "Address",
-                    LocatorDefaultAddress: "139 W Porter Ave Naperville IL 60540",
-                    LocatorParamaters: ["SingleLine"],
-                    LocatorURL: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
-                    CandidateFields: "Loc_name, Score, Match_addr",
-                    DisplayField: "${Match_addr}",
-                    ZoomLevel: 7,
-                    AddressMatchScore: 80,
-                    LocatorFieldName: 'Loc_name',
-                    LocatorFieldValues: ["USA.StreetName" , "USA.PointAddress", "USA.StreetAddress"]
-                },
-                {
-                    DisplayText: "Precinct",
-                    LocatorDefaultPrecinct: "Lisle 12"
-                }
-            ]
+        Locators: [{
+            DisplayText: "Address",
+            LocatorDefaultAddress: "139 W Porter Ave Naperville IL 60540",
+            LocatorParamaters: ["SingleLine"],
+            LocatorURL: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
+            CandidateFields: "Loc_name, Score, Match_addr",
+            DisplayField: "${Match_addr}",
+            ZoomLevel: 7,
+            AddressMatchScore: 80,
+            LocatorFieldName: 'Loc_name',
+            LocatorFieldValues: ["USA.StreetName", "USA.PointAddress", "USA.StreetAddress"]
+        }, {
+            DisplayText: "Precinct",
+            LocatorDefaultPrecinct: "Lisle 12"
+        }]
     },
 
     // ------------------------------------------------------------------------------------------------------------------------
@@ -177,114 +170,112 @@ dojo.declare("js.config", null, {
     // WinningParty is the attribute name which gives the winning party name. This is not required for pie-chart
     // DisplayOnLoad setting this will show the contest layer on load. If this is set true for multiple contests, only the first occurrence is considered
     // TotalBallots is the attribute name which gives the total votes casted. This is not required for pie-chart
-    ElectionResultData:
-          {
-              POULayer:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "President of US",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/0",
-                        ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4", "NUMVOTES5", "NUMVOTES6", "NUMVOTES7", "NUMVOTES8"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4", "PARTY5", "PARTY6", "PARTY7", "PARTY8"],
-                        CandidateNames: ["CANDIDATE1", "CANDIDATE2", "CANDIDATE3", "CANDIDATE4", "CANDIDATE5", "CANDIDATE6", "CANDIDATE7", "CANDIDATE8"],
-                        DisplayOnLoad: true,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              Senate24thDistrict:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "Senate 24th District",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/1",
-                        ChartData: ["NUMVOTES1"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1"],
-                        CandidateNames: ["CANDIDATE1"],
-                        DisplayOnLoad: false,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              Senate42ndDistrict:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "Senate 42nd District",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/2",
-                        ChartData: ["NUMVOTES1", "NUMVOTES2"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1", "PARTY2"],
-                        CandidateNames: ["CANDIDATE1", "CANDIDATE2"],
-                        DisplayOnLoad: false,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              Senate48thDistrict:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "Senate 48th District",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/3",
-                        ChartData: ["NUMVOTES1"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1"],
-                        CandidateNames: ["CANDIDATE1"],
-                        DisplayOnLoad: false,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              USHouseofRepresentatives13thDistrict:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "US House of Representatives 13th District",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/4",
-                        ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4"],
-                        CandidateNames: ["CANDIDATE1", "CANDIDATE2", "CANDIDATE3", "CANDIDATE4"],
-                        DisplayOnLoad: false,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              DupageCountyRecorderofDeeds:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "Dupage County Recorder of Deeds",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/5",
-                        ChartData: ["NUMVOTES1", "NUMVOTES2"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1", "PARTY2"],
-                        CandidateNames: ["CANDIDATE1", "CANDIDATE2"],
-                        DisplayOnLoad: false,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              WillCountyRecorderofDeeds:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "Will County Recorder of Deeds",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/6",
-                        ChartData: ["NUMVOTES1", "NUMVOTES2"],
-                        ChartType: "barchart",
-                        PartyDetails: ["PARTY1", "PARTY2"],
-                        CandidateNames: ["CANDIDATE1", "CANDIDATE2"],
-                        DisplayOnLoad: false,
-                        TotalBallots: "TOTBALLOTS"
-                    },
-              VoterTurnout:
-                    {
-                        HeaderColor: "#393939",
-                        Title: "Voter Turnout",
-                        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/7",
-                        ChartData: ["PERCVOTE"],
-                        DisplayOnLoad: false,
-                        ChartType: "piechart"
-                    }
-          },
+    ElectionResultData: {
+        POULayer: {
+            HeaderColor: "#393939",
+            Title: "President of US",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/0",
+            ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4", "NUMVOTES5", "NUMVOTES6", "NUMVOTES7", "NUMVOTES8"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4", "PARTY5", "PARTY6", "PARTY7", "PARTY8"],
+            CandidateNames: ["CANDIDATE1", "CANDIDATE2", "CANDIDATE3", "CANDIDATE4", "CANDIDATE5", "CANDIDATE6", "CANDIDATE7", "CANDIDATE8"],
+            DisplayOnLoad: true,
+            TotalBallots: "TOTBALLOTS"
+        },
+        Senate24thDistrict: {
+            HeaderColor: "#393939",
+            Title: "Senate 24th District",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/1",
+            ChartData: ["NUMVOTES1"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1"],
+            CandidateNames: ["CANDIDATE1"],
+            DisplayOnLoad: false,
+            TotalBallots: "TOTBALLOTS"
+        },
+        Senate42ndDistrict: {
+            HeaderColor: "#393939",
+            Title: "Senate 42nd District",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/2",
+            ChartData: ["NUMVOTES1", "NUMVOTES2"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1", "PARTY2"],
+            CandidateNames: ["CANDIDATE1", "CANDIDATE2"],
+            DisplayOnLoad: false,
+            TotalBallots: "TOTBALLOTS"
+        },
+        Senate48thDistrict: {
+            HeaderColor: "#393939",
+            Title: "Senate 48th District",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/3",
+            ChartData: ["NUMVOTES1"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1"],
+            CandidateNames: ["CANDIDATE1"],
+            DisplayOnLoad: false,
+            TotalBallots: "TOTBALLOTS"
+        },
+        USHouseofRepresentatives13thDistrict: {
+            HeaderColor: "#393939",
+            Title: "US House of Representatives 13th District",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/4",
+            ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4"],
+            CandidateNames: ["CANDIDATE1", "CANDIDATE2", "CANDIDATE3", "CANDIDATE4"],
+            DisplayOnLoad: false,
+            TotalBallots: "TOTBALLOTS"
+        },
+        DupageCountyRecorderofDeeds: {
+            HeaderColor: "#393939",
+            Title: "Dupage County Recorder of Deeds",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/5",
+            ChartData: ["NUMVOTES1", "NUMVOTES2"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1", "PARTY2"],
+            CandidateNames: ["CANDIDATE1", "CANDIDATE2"],
+            DisplayOnLoad: false,
+            TotalBallots: "TOTBALLOTS"
+        },
+        WillCountyRecorderofDeeds: {
+            HeaderColor: "#393939",
+            Title: "Will County Recorder of Deeds",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/6",
+            ChartData: ["NUMVOTES1", "NUMVOTES2"],
+            ChartType: "barchart",
+            PartyDetails: ["PARTY1", "PARTY2"],
+            CandidateNames: ["CANDIDATE1", "CANDIDATE2"],
+            DisplayOnLoad: false,
+            TotalBallots: "TOTBALLOTS"
+        },
+        VoterTurnout: {
+            HeaderColor: "#393939",
+            Title: "Voter Turnout",
+            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/7",
+            ChartData: ["PERCVOTE"],
+            DisplayOnLoad: false,
+            ChartType: "piechart"
+        }
+    },
 
     //Query field for ElectionResultData layers
     ElectionResultDataQueryString: "NAME",
 
     //Set the color for different parties
-    ColorCodeOfParties:
-		 {
-		     "Democratic": { "Color": "#243F78" },
-		     "Republican": { "Color": "#B0321C" },
-		     "Green Party": { "Color": "#006400" },
-		     "Others": { "Color": "#ffffff" }
-		 },
+    ColorCodeOfParties: {
+        "Democratic": {
+            "Color": "#243F78"
+        },
+        "Republican": {
+            "Color": "#B0321C"
+        },
+        "Green Party": {
+            "Color": "#006400"
+        },
+        "Others": {
+            "Color": "#ffffff"
+        }
+    },
 
     //Set the color for those who voted
     VotedColor: "#66736D",
@@ -296,26 +287,24 @@ dojo.declare("js.config", null, {
     //SETTING FOR ELECTION UPDATES
     // ------------------------------------------------------------------------------------------------------------------------
     //Set data to be displayed for election updates
-    Updates:
-		  {
-		      // Set date format
-		      FormatDateAs: "MMM dd, yyyy",
-		      // Set time format
-		      FormatTimeAs: "HH:mm:ss",
-		      //Specify the field name for last update
-		      FieldName: "LASTUPDATE"
-		  },
+    Updates: {
+        // Set date format
+        FormatDateAs: "MMM dd, yyyy",
+        // Set time format
+        FormatTimeAs: "HH:mm:ss",
+        //Specify the field name for last update
+        FieldName: "LASTUPDATE"
+    },
 
     // ------------------------------------------------------------------------------------------------------------------------
     // SETTINGS FOR MAP SHARING
     // ------------------------------------------------------------------------------------------------------------------------
     // Set URL for TinyURL service, and URLs for social media
-    MapSharingOptions:
-          {
-              TinyURLServiceURL: "http://api.bit.ly/v3/shorten?login=esri&apiKey=R_65fd9891cd882e2a96b99d4bda1be00e&uri=${0}&format=json",
-              TinyURLResponseAttribute: "data.url",
-              FacebookShareURL: "http://www.facebook.com/sharer.php?u=${0}&t=Election%20Results",
-              TwitterShareURL: "http://mobile.twitter.com/compose/tweet?status=Election%20Results ${0}",
-              ShareByMailLink: "mailto:%20?subject=Election%20Results&body=${0}"
-          }
+    MapSharingOptions: {
+        TinyURLServiceURL: "http://api.bit.ly/v3/shorten?login=esri&apiKey=R_65fd9891cd882e2a96b99d4bda1be00e&uri=${0}&format=json",
+        TinyURLResponseAttribute: "data.url",
+        FacebookShareURL: "http://www.facebook.com/sharer.php?u=${0}&t=Election%20Results",
+        TwitterShareURL: "http://mobile.twitter.com/compose/tweet?status=Election%20Results ${0}",
+        ShareByMailLink: "mailto:%20?subject=Election%20Results&body=${0}"
+    }
 });
