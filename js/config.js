@@ -101,7 +101,7 @@ dojo.declare("js.config", null, {
     // County is the attribute name from the Precinct Layer which represents County name
     PrecinctLayer: {
         Key: "precinctLayer",
-        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/8",
+        ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/8",
         UseColor: true,
         Color: "#FFFC17",
         Alpha: 0.50,
@@ -114,7 +114,7 @@ dojo.declare("js.config", null, {
     // ServiceURL is the REST end point for the reference overlay layer
     // DisplayOnLoad setting this will show the reference overlay layer on load
     ReferenceOverlayLayer: {
-        ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ReferenceOverlay/MapServer",
+        ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ReferenceOverlay/MapServer",
         DisplayOnLoad: true
     },
 
@@ -150,7 +150,7 @@ dojo.declare("js.config", null, {
     // GEOMETRY SERVICE SETTINGS
     // ------------------------------------------------------------------------------------------------------------------------
     // Set geometry service URL
-    GeometryService: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/Utilities/Geometry/GeometryServer",
+    GeometryService: "http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer",
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -174,7 +174,7 @@ dojo.declare("js.config", null, {
         POULayer: {
             HeaderColor: "#393939",
             Title: "President of US",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/0",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/0",
             ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4", "NUMVOTES5", "NUMVOTES6", "NUMVOTES7", "NUMVOTES8"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4", "PARTY5", "PARTY6", "PARTY7", "PARTY8"],
@@ -185,7 +185,7 @@ dojo.declare("js.config", null, {
         Senate24thDistrict: {
             HeaderColor: "#393939",
             Title: "Senate 24th District",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/1",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/1",
             ChartData: ["NUMVOTES1"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1"],
@@ -196,7 +196,7 @@ dojo.declare("js.config", null, {
         Senate42ndDistrict: {
             HeaderColor: "#393939",
             Title: "Senate 42nd District",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/2",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/2",
             ChartData: ["NUMVOTES1", "NUMVOTES2"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1", "PARTY2"],
@@ -207,7 +207,7 @@ dojo.declare("js.config", null, {
         Senate48thDistrict: {
             HeaderColor: "#393939",
             Title: "Senate 48th District",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/3",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/3",
             ChartData: ["NUMVOTES1"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1"],
@@ -218,7 +218,7 @@ dojo.declare("js.config", null, {
         USHouseofRepresentatives13thDistrict: {
             HeaderColor: "#393939",
             Title: "US House of Representatives 13th District",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/4",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/4",
             ChartData: ["NUMVOTES1", "NUMVOTES2", "NUMVOTES3", "NUMVOTES4"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1", "PARTY2", "PARTY3", "PARTY4"],
@@ -229,7 +229,7 @@ dojo.declare("js.config", null, {
         DupageCountyRecorderofDeeds: {
             HeaderColor: "#393939",
             Title: "Dupage County Recorder of Deeds",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/5",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/5",
             ChartData: ["NUMVOTES1", "NUMVOTES2"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1", "PARTY2"],
@@ -240,7 +240,7 @@ dojo.declare("js.config", null, {
         WillCountyRecorderofDeeds: {
             HeaderColor: "#393939",
             Title: "Will County Recorder of Deeds",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/6",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/6",
             ChartData: ["NUMVOTES1", "NUMVOTES2"],
             ChartType: "barchart",
             PartyDetails: ["PARTY1", "PARTY2"],
@@ -251,7 +251,7 @@ dojo.declare("js.config", null, {
         VoterTurnout: {
             HeaderColor: "#393939",
             Title: "Voter Turnout",
-            ServiceURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/ElectionResults/MapServer/7",
+            ServiceURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ElectionResults/MapServer/7",
             ChartData: ["PERCVOTE"],
             DisplayOnLoad: false,
             ChartType: "piechart"
