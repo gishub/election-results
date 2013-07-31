@@ -34,9 +34,9 @@ on the ArcGIS Resource Center can guide you in the setup and configuration of th
 
 ### Your Services
 
-* ArcGIS for Desktop 10.1 - Standard or Advanced - [About](http://www.esri.com/software/arcgis/arcgis-for-desktop)
-* ArcGIS for Server 10.1 - Standard or Advanced - [About](http://www.esri.com/software/arcgis/arcgisserver)
-* Local Government Information Model - [About](http://www.arcgis.com/home/item.html?id=5f799e6d23d94e25b5aaaf2a58e63fb1)
+* ArcGIS for Desktop 10.2 - Standard or Advanced - [About](http://www.esri.com/software/arcgis/arcgis-for-desktop)
+* ArcGIS for Server 10.2 - Standard or Advanced - [About](http://www.esri.com/software/arcgis/arcgisserver)
+* Local Government Information Model - [About](http://www.arcgis.com/home/item.html?id=ae175b36c4154dda987127dff879350d)
 * Microsoft ASP.NET Framework 4.0 available from the [Microsoft website](http://www.microsoft.com/en-us/download/details.aspx?id=17851)
 
 ## Resources
@@ -45,7 +45,7 @@ Learn more about Esri's [ArcGIS for Local Government maps and apps](http://resou
 
 Show me a list of other [Local Government GitHub repositories](http://esri.github.io/#Local-Government).
 
-Additional [information and sample data](http://www.arcgis.com/home/item.html?id=9f4e787df21f4d2b9a932ea0d07c899a)
+Additional [information and sample data](http://www.arcgis.com/home/item.html?id=7113ff6a39de4be6adc21834ac3ba94e)
 are available for the application.
 
 This application uses the 3.5 version of
