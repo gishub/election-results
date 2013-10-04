@@ -48,6 +48,12 @@ function orientationChanged() {
                     map.centerAt(selectedGraphic);
                     isOrientationChanged = false;
                 }
+
+                if ((dojo.byId("imgToggle").getAttribute("state") == "maximized") && isAndroidTablet && isTablet && window.matchMedia("(orientation: landscape)").matches) {
+                    if (document.activeElement.id == "txtAddress") {
+                        HideBottomPanel();
+                    }
+                }
             }
         }, timeout);
     }
@@ -439,7 +445,7 @@ function CreateScrollbar(container, content) {
     scrollbar_track.appendChild(scrollbar_handle);
     container.appendChild(scrollbar_track);
 
-    if (content.scrollHeight <= content.offsetHeight) {
+    if (content.scrollHeight <= (content.offsetHeight + 5)) {
         scrollbar_handle.style.display = 'none';
         scrollbar_track.style.display = 'none';
         return;
@@ -673,7 +679,7 @@ function ResetSlideControls() {
 
     if (leftOffsetCarosuel == 0) {
         dojo.byId('divSlideLeft').style.display = "none";
-        dojo.byId('divSlideLeft').style.cursor = "defalut";
+        dojo.byId('divSlideLeft').style.cursor = "default";
     }
     else {
         dojo.byId('divSlideLeft').style.display = "block";

@@ -103,7 +103,7 @@ function SearchPrecinctName(precinctName, carouselVisible) {
                     dojo.byId("imgSearchLoader").style.display = "none";
                     return;
                 }
-                if (featureSet.length == 1) {
+                else if (featureSet.length == 1) {
                     dojo.byId("txtAddress").blur();
                     if (!carouselVisible) {
                         dojo.byId('txtAddress').setAttribute("defaultPrecinct", featureSet[0].attributes[precinctLayer.PrecinctName]);
@@ -358,7 +358,7 @@ function FetchContestData(layer, index, mapPoint, searchParameter, isInfoWindow,
         else {
             RemoveChildren(dojo.byId('div' + index + 'content'));
             var chartDiv = document.createElement("div");
-            chartDiv.className = "divContentStyle";
+            chartDiv.className = "divChartStyle";
             dojo.byId('div' + index + 'content').appendChild(chartDiv);
         }
         if (features.features.length > 0) {
