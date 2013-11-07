@@ -116,7 +116,7 @@ html, body
 .divChartTitle
 {
     position: absolute;
-    bottom: 5px;
+    bottom: 2px;
     width: 100%;
 }
 
@@ -135,7 +135,7 @@ html, body
 {
     position: absolute;
     width: 424px;
-    height: 180px;
+    height: 170px;
     overflow: hidden;
     margin-top: -10px;
 }

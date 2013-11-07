@@ -35,6 +35,7 @@ var isiOS = false; //This variable will be set to 'true' if the application is a
 var isBrowser = false; //This variable will be set to 'true' when application is accessed from desktop browsers
 var isMobileDevice = false; //This variable will be set to 'true' when application is accessed from mobile phone device
 var isTablet = false; //This variable will be set to 'true' when application is accessed from tablet device
+var isAndroidTablet = false; //This variable will be set to 'true' when application is accessed from android tablet device
 
 var zoomLevel; //variable to store the zoom level
 var locator; //variable to store the locator URL
@@ -86,21 +87,21 @@ function init() {
         isiOS = true;
     }
 
-    if (userAgent.indexOf("Android") >= 0 || userAgent.indexOf("iPhone") >= 0) {
+    if ((userAgent.indexOf("Android") >= 0 && userAgent.indexOf("Mobile") >= 0) || userAgent.indexOf("iPhone") >= 0) {
+        fontSize = 15;
         isMobileDevice = true;
-        dojo.byId('dynamicStyleSheet').href = "styles/mobile.css";
-        dojo.byId('divSplashContent').style.fontSize = "15px";
-    }
-    else if (userAgent.indexOf("iPad") >= 0) {
+        dojo.byId("dynamicStyleSheet").href = "styles/mobile.css";
+    } else if ((userAgent.indexOf("iPad") >= 0) || (userAgent.indexOf("Android") >= 0)) {
+        isAndroidTablet = navigator.userAgent.indexOf("Android") >= 0;
+        fontSize = 14;
         isTablet = true;
-        dojo.byId('dynamicStyleSheet').href = "styles/tablet.css";
-        dojo.byId('divSplashContent').style.fontSize = "14px";
-    }
-    else {
+        dojo.byId("dynamicStyleSheet").href = "styles/tablet.css";
+    } else {
+        fontSize = 11;
         isBrowser = true;
-        dojo.byId('dynamicStyleSheet').href = "styles/browser.css";
-        dojo.byId('divSplashContent').style.fontSize = "11px";
+        dojo.byId("dynamicStyleSheet").href = "styles/browser.css";
     }
+    dojo.byId("divSplashContent").style.fontSize = fontSize + "px";
 
     if (isMobileDevice) {
         dojo.byId('divSplashScreenDialog').style.width = "95%";
@@ -190,6 +191,13 @@ function init() {
             LocateAddress();
         }, 100);
     });
+
+    dojo.connect(dojo.byId("txtAddress"), 'onfocus', function (evt) {
+        if ((dojo.byId("imgToggle").getAttribute("state") == "maximized") && isAndroidTablet && isTablet && window.matchMedia("(orientation: landscape)").matches) {
+            HideBottomPanel();
+        }
+    });
+
 
     dojo.byId("tdsearchAddress").innerHTML = responseObject.LocatorSettings.Locators[0].DisplayText;
     dojo.byId("tdSearchPrecinct").innerHTML = responseObject.LocatorSettings.Locators[1].DisplayText;
