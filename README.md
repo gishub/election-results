@@ -1,6 +1,6 @@
 # election-results
 
-The Election Results application is a configuration of ArcGIS Server and a HTML 5 / JavaScript application that provides election results information to the general public and other interested parties.  It is a single application that can be deployed by local governments and used citizens on a desktop PC, mobile phone, and tablet device.  It offers a map-based view of election results that allows users to locate an address or voting precinct and review election results that are summarized in a bar chart in the information panel at the bottom of the application and an information popup for each precinct.
+The Election Results application is a configuration of ArcGIS Server and a HTML 5 / JavaScript application that provides election results information to the general public and other interested parties.  It is a single application that can be deployed by local governments and used by citizens on a desktop PC, mobile phone, and tablet device.  It offers a map-based view of election results that allows users to locate an address or voting precinct and review election results that are summarized in a bar chart in the information panel at the bottom of the application and an information popup for each precinct.
 
 [Try the Election Results application](http://localgovtemplates2.esri.com/electionresults/)
 
